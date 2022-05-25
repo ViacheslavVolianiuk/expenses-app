@@ -16,6 +16,7 @@ body {
   display: grid;
   grid-template-columns: minmax(min-content, 100rem);
   justify-content: center;
+  gap: 1rem;
 }
 .container h1 {
   justify-self: center;

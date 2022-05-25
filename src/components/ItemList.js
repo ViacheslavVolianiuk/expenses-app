@@ -4,7 +4,7 @@ import CostsFilter from './CostsFilter';
 import './ItemList.css';
 
 function ItemList({ props }) {
-  const [selectedYear, setSelectedYear] = useState('2021');
+  const [selectedYear, setSelectedYear] = useState('2022');
   const yearChangeHandler = (year) => {
     setSelectedYear(year);
   };
