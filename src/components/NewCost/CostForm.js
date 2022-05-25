@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CostForm.css';
 
-function CostForm() {
+function CostForm(props) {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
@@ -18,10 +18,14 @@ function CostForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     const costData = {
-      name,
+      description: name,
       amount,
       date: new Date(date),
     };
+    props.onSaveCostData(costData);
+    setName('');
+    setAmount('');
+    setDate('');
   };
 
   return (
@@ -29,7 +33,7 @@ function CostForm() {
       <div className="new-cost__controls">
         <div className="new-cost__control">
           <label>Name</label>
-          <input type="text" onChange={nameChangeHandler} />
+          <input type="text" value={name} onChange={nameChangeHandler} />
         </div>
       </div>
       <div className="new-cost__controls">
@@ -39,6 +43,7 @@ function CostForm() {
             type="number"
             min="0.01"
             step="0.01"
+            value={amount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -50,6 +55,7 @@ function CostForm() {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
+            value={date}
             onChange={dateChangeHandler}
           />
         </div>
