@@ -20,7 +20,7 @@ const INITIAL_COSTS = [
     description: 'For Charity',
     amount: 50000,
   },
-  { id: 7, date: new Date(2019, 0, 12), description: 'Book', amount: 55 },
+  { id: 7, date: new Date(2019, 8, 17), description: 'Book', amount: 55 },
   { id: 8, date: new Date(2022, 9, 1), description: 'Phone', amount: 799 },
 ];
 export default INITIAL_COSTS;

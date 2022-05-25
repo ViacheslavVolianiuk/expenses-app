@@ -8,7 +8,7 @@ function CostItem({ date, description, amount }) {
       <div className="cost-item__date">
         <div>{date.getFullYear()}</div>
         <div>{date.toLocaleString('en-GB', { month: 'long' })}</div>
-        <div>{date.getDay()}</div>
+        <div>{date.getDate()}</div>
       </div>
       <div className="cost-item__description">
         <h2>{description}</h2>
