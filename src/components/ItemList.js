@@ -9,11 +9,15 @@ function ItemList({ props }) {
     setSelectedYear(year);
   };
 
+  const filteredCosts = props.filter(
+    (item) => item.date.getFullYear() === +selectedYear
+  );
+
   return (
     <div>
       <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
       <div className="item-list">
-        {props.map((item, index) => {
+        {filteredCosts.map((item, index) => {
           return (
             <CostItem
               key={index}
