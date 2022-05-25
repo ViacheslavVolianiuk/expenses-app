@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CostItem.css';
 import Card from './Card';
 
 function CostItem({ date, description, amount }) {
+  const [desc, setDesc] = useState(description);
+  const [amnt, setAmnt] = useState(amount);
+  const handleClick = () => {
+    setDesc(window.prompt('Print somthing to change name:'));
+    setAmnt(window.prompt('Print somthing to change price:'));
+  };
+
   return (
     <Card>
       <div className="cost-item__date">
@@ -11,11 +18,12 @@ function CostItem({ date, description, amount }) {
         <div>{date.getDay()}</div>
       </div>
       <div className="cost-item__description">
-        <h2>{description}</h2>
+        <h2>{desc}</h2>
         <div className="cost-item__price">
           <span>$</span>
-          {amount}
+          {amnt}
         </div>
+        <button onClick={handleClick}>Change somthing</button>
       </div>
     </Card>
   );
