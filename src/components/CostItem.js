@@ -1,9 +1,10 @@
 import React from 'react';
 import './CostItem.css';
+import Card from './Card';
 
 function CostItem({ date, description, amount }) {
   return (
-    <div className="cost-item">
+    <Card>
       <div className="cost-item__date">
         <div>{date.getFullYear()}</div>
         <div>{date.toLocaleString('en-GB', { month: 'long' })}</div>
@@ -16,7 +17,7 @@ function CostItem({ date, description, amount }) {
           {amount}
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 
