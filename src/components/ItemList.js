@@ -17,16 +17,28 @@ function ItemList({ props }) {
     <div>
       <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
       <div className="item-list">
-        {filteredCosts.map((item, index) => {
-          return (
-            <CostItem
-              key={index}
-              date={item.date}
-              description={item.description}
-              amount={item.amount}
-            />
-          );
-        })}
+        {filteredCosts.length === 0 ? (
+          <p
+            style={{
+              fontSize: '3rem',
+              color: 'rgb(162, 136, 221)',
+              textAlign: 'center',
+            }}
+          >
+            No expenses this year
+          </p>
+        ) : (
+          filteredCosts.map((item, index) => {
+            return (
+              <CostItem
+                key={index}
+                date={item.date}
+                description={item.description}
+                amount={item.amount}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );
