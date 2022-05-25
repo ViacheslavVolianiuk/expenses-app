@@ -24,6 +24,7 @@ body {
   letter-spacing: 1px;
   font-weight: 400;
   color: rgb(162, 136, 221);
+  margin: 0.5rem auto;
 }
 
 @media only screen and (max-width: 25em) {
