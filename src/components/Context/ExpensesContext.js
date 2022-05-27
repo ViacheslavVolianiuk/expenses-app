@@ -11,6 +11,13 @@ export const ExpensesProvider = ({ children }) => {
     console.log(cost);
     setCosts([cost, ...costs]);
   };
+  //Year
+  const [selectedYear, setSelectedYear] = useState('2022');
+
+  //filtered costs
+  const filteredCosts = costs.filter(
+    (item) => item.date.getFullYear() === +selectedYear
+  );
 
   //Form visivility and buttons
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -32,6 +39,9 @@ export const ExpensesProvider = ({ children }) => {
         isFormVisible,
         inputCostDataHandler,
         cancelCostHandler,
+        filteredCosts,
+        selectedYear,
+        setSelectedYear,
       }}
     >
       {children}

@@ -3,22 +3,21 @@ import CostItem from './CostItem';
 import CostsFilter from './CostsFilter';
 import './ItemList.css';
 import ExpensesContext from './Context/ExpensesContext';
+import CostsDiagram from './CostsDiagram';
 
 function ItemList() {
-  const { costs } = useContext(ExpensesContext);
+  const { filteredCosts, selectedYear, setSelectedYear } =
+    useContext(ExpensesContext);
 
-  const [selectedYear, setSelectedYear] = useState('2022');
   const yearChangeHandler = (year) => {
     setSelectedYear(year);
   };
 
-  const filteredCosts = costs.filter(
-    (item) => item.date.getFullYear() === +selectedYear
-  );
-
   return (
     <div>
       <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
+      <CostsDiagram />
+
       <div className="item-list">
         {filteredCosts.length === 0 ? (
           <p

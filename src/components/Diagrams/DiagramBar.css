@@ -18,13 +18,13 @@
 }
 
 .diagram-bar__fill {
-  background-color: #bd8025;
+  background-color: rgba(162, 136, 221);
   width: 100%;
   transition: all 0.3s ease-out;
 }
 
 .diagram-bar__label {
   font-weight: bold;
-  font-size: 0.5rem;
+  font-size: 1.5rem;
   text-align: center;
 }
