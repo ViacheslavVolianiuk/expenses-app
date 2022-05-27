@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import CostForm from './CostForm';
 import './NewCost.css';
 import { v4 as uuidv4 } from 'uuid';
+import ExpensesContext from '../Context/ExpensesContext';
 
-function NewCost(props) {
+function NewCost() {
+  const { onAddCost } = useContext(ExpensesContext);
+
   const saveCostDataHandler = (inputCostData) => {
     const costData = {
       ...inputCostData,
       id: uuidv4(),
     };
-    props.onAddCost(costData);
+    onAddCost(costData);
     setIsFormVisible(false);
   };
 

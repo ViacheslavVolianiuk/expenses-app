@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CostItem from './CostItem';
 import CostsFilter from './CostsFilter';
 import './ItemList.css';
+import ExpensesContext from './Context/ExpensesContext';
 
-function ItemList({ props }) {
+function ItemList() {
+  const { costs } = useContext(ExpensesContext);
+
   const [selectedYear, setSelectedYear] = useState('2022');
   const yearChangeHandler = (year) => {
     setSelectedYear(year);
   };
 
-  const filteredCosts = props.filter(
+  const filteredCosts = costs.filter(
     (item) => item.date.getFullYear() === +selectedYear
   );
 

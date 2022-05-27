@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import ItemList from './components/ItemList';
 import NewCost from './components/NewCost/NewCost';
-import INITIAL_COSTS from './components/Data/InitializationData';
+
+import ExpensesContext, {
+  ExpensesProvider,
+} from './components/Context/ExpensesContext';
 
 function App() {
-  const [costs, setCosts] = useState(INITIAL_COSTS);
-
-  const addCostHandler = (cost) => {
-    console.log(cost);
-    setCosts([cost, ...costs]);
-  };
   return (
-    <div className="container">
-      <h1>Expenses App</h1>
-      <NewCost onAddCost={addCostHandler} />
-      <ItemList props={costs} />
-    </div>
+    <ExpensesProvider>
+      <div className="container">
+        <h1>Expenses App</h1>
+        <NewCost />
+        <ItemList />
+      </div>
+    </ExpensesProvider>
   );
 }
 
