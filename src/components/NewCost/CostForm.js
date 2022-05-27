@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './CostForm.css';
+import { v4 as uuidv4 } from 'uuid';
+import ExpensesContext from '../Context/ExpensesContext';
 
 function CostForm(props) {
   const [name, setName] = useState('');
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
+
+  const { AddCost, cancelCostHandler } = useContext(ExpensesContext);
 
   const nameChangeHandler = (e) => {
     setName(e.target.value);
@@ -21,8 +25,11 @@ function CostForm(props) {
       description: name,
       amount,
       date: new Date(date),
+      id: uuidv4(),
     };
-    props.onSaveCostData(costData);
+
+    AddCost(costData);
+    cancelCostHandler();
     setName('');
     setAmount('');
     setDate('');
