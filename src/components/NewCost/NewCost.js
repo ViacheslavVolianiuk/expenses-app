@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import CostForm from './CostForm';
 import './NewCost.css';
 import ExpensesContext from '../Context/ExpensesContext';
