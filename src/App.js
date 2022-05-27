@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ItemList from './components/ItemList';
 import NewCost from './components/NewCost/NewCost';
 
-import ExpensesContext, {
-  ExpensesProvider,
-} from './components/Context/ExpensesContext';
+import { ExpensesProvider } from './components/Context/ExpensesContext';
 
 function App() {
   return (
